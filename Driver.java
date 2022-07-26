@@ -14,10 +14,14 @@ public class Driver {
 		ArrayList<EnergyDrink> drinkList = new ArrayList<EnergyDrink>();
 		drinkList.add(new EnergyDrink("Red Bull", 2.00));
 		drinkList.add(new EnergyDrink("Monster", 3.00));
+		drinkList.add(new EnergyDrink("Bang", 1.99));
+		drinkList.add(new EnergyDrink("5 Hours", 3.50));
+		drinkList.add(new EnergyDrink("Kickstarter", 2.25));
 		
 		// menu interface
 		// while the userInput is not "x" we loop, we present the menu again
 		do {
+			System.out.println("======================================");
 			System.out.println("Welcome to the Energy Drink Store!");
 			System.out.println("[1] Display List");
 			System.out.println("[2] Create and Add an Energy Drink to the list");
@@ -28,10 +32,12 @@ public class Driver {
 			switch(userInput) {
 			case "1":
 				System.out.println("The Energy Drinks currently listed are:");
+				System.out.println();
 				for(EnergyDrink currentDrink: drinkList) {
 					//System.out.println(currentDrink.getName() + " priced at: " + currentDrink.price);
 					System.out.printf("%s priced at: $%.2f \n", currentDrink.getName(), currentDrink.price);
 				}
+				System.out.println();
 				break;
 			case "2":
 				// Get User's Drink Name
@@ -57,7 +63,8 @@ public class Driver {
 
 				break;
 			case "x":
-				System.out.println("");
+				System.out.println("Closing Store, Goodbye!");
+				scanner.close();
 				break;
 			default:
 				System.out.println("Wrong input. Please try again using one of the valid options.");
